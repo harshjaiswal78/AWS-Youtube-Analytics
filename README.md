@@ -159,6 +159,8 @@ YouTube-Analysis-Project/
 ---
 
 ## Final Visualization & Insights
+[Sheet_1_2025-04-16T09_43_07.pdf](https://github.com/user-attachments/files/19775015/Sheet_1_2025-04-16T09_43_07.pdf)
+
 
 ### 📊 Key Stats from Dashboard
 
