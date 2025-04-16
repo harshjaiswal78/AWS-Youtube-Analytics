@@ -1,8 +1,7 @@
-# AWS-Youtube-Analytics
-Build an end to end Data Pipeline in AWS
-# Data Engineering YouTube Analysis Project
+# AWS-Youtube-Analytics  
+Build an end-to-end Data Pipeline in AWS  
 
-## Table of Contents
+## Table of Contents  
 1. [Project Overview](#project-overview)  
 2. [Architecture](#architecture)  
 3. [Services Used](#services-used)  
@@ -14,8 +13,7 @@ Build an end to end Data Pipeline in AWS
 9. [Reporting](#reporting)  
 10. [Dataset](#dataset)  
 11. [Folder Structure](#folder-structure)  
-12. [Future Enhancements](#future-enhancements)  
-13. [License](#license)  
+12. [Final Visualization & Insights](#final-visualization--insights)  
 
 ---
 
@@ -40,9 +38,7 @@ The high-level architecture outlines how data flows through the system:
 
 ![architecture](https://github.com/user-attachments/assets/f81662d6-ae64-4673-9931-d56905026bf3)
 
-
-
-**Components Overview:**
+### Components Overview
 
 1. **Source Systems**: Raw CSV and JSON files containing trending YouTube data.  
 2. **Data Platform**: An AWS S3 bucket designated for **bulk ingestion**.  
@@ -119,12 +115,14 @@ AWS services are used for end-to-end processing due to the limitations of local 
 
 **Amazon QuickSight** is used to build dashboards and visualize YouTube trending data.
 
-### Possible Dashboards:
+### Dashboard Features
 
 - **Trending Analysis**: Track top trending categories by region or date.  
 - **Channel Insights**: Most viewed or engaged channels.  
 - **Engagement Metrics**: Like-to-dislike ratio, comment count trends.  
-- **Sentiment Analysis**: Evaluate public response to videos.
+- **Sentiment Analysis**: Evaluate public response to videos.  
+
+🔗 **[View the Live Dashboard in Amazon QuickSight](https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/84c7c91e-6bd6-4e42-9678-e8c3ff6fd92e)**
 
 ---
 
@@ -132,11 +130,84 @@ AWS services are used for end-to-end processing due to the limitations of local 
 
 **Source**: [Kaggle - YouTube Trending Dataset](https://www.kaggle.com/datasets/datasnaek/youtube-new)
 
-This dataset includes:
+The dataset includes:
 - Daily trending video data for multiple regions.
-- Metadata such as title, channel, publish time, tags, views, likes, dislikes, comments.
-- A `category_id` mapping in a separate region-based JSON file.
+- Metadata such as title, channel, publish time, tags, views, likes, dislikes, and comments.
+- Region-specific category mappings.
 
 ---
 
 ## Folder Structure
+
+YouTube-Analysis-Project/
+├── data/
+│   ├── raw/              # Local raw files
+│   └── sample/           # Sample datasets for quick testing
+├── scripts/
+│   ├── ingestion/        # Ingestion logic or Lambda scripts
+│   ├── etl/              # Glue ETL scripts
+│   └── queries/          # Athena validation queries
+├── notebooks/
+│   └── EDA.ipynb         # Exploratory analysis notebooks
+├── dashboards/
+│   └── QuickSight/       # Dashboard exports or notes
+├── diagrams/
+│   └── architecture.jpg  # Architecture diagram
+├── README.md
+└── requirements.txt      # Python dependencies (if any)
+
+---
+
+## Final Visualization & Insights
+
+### 📊 Key Stats from Dashboard
+
+- **Average Engagement Rate**: `3.38%`  
+- **Likes to Dislike Ratio**: `41.9`  
+- **Dislike Rate**: `12.68%`  
+- **Average Views per Video**: `1.45M`  
+- **Engagement Depth (Comments/1K Views)**: `4.49`  
+
+### 🌍 Regional Viewership
+
+- **Great Britain (GB)**: `5.36B views`  
+- **United States (US)**: `2.97B views`  
+- **Canada (CA)**: `1.92B views`  
+
+### 🎬 Top Videos by Views
+
+1. **[MV] 마마무(MAMAMOO)** — `1.07B`  
+2. **Donald Trump Wins** — `1.03B`  
+3. **Primitive Technology** — `0.45B`  
+4. **LOGAN PAUL** — `0.31B`  
+5. **Bruno Mars and Cardi B** — `0.27B`  
+
+### 📈 Engagement Rate by Category
+
+- Top performing categories:
+  - **ID 26**: `7.3%`
+  - **ID 20**: `5.05%`
+  - **ID 10**: `4.03%`
+- Lowest performing categories:
+  - **ID 43**: `1.18%`
+  - **ID 17**: `1.8%`
+
+### 🧠 Observations
+
+- Categories like music (26), entertainment (20), and news (10) are highly engaging.
+- Regions like GB and US drive the majority of YouTube views.
+- Dislike rate is notable at 12.68%, but the like-to-dislike ratio is still heavily skewed towards positive.
+- Videos with higher engagement depth (comments/1K views) reflect more emotionally or socially impactful content.
+
+---
+
+## Conclusion
+
+This project demonstrates the power of a cloud-native, serverless data pipeline to derive insights from semi-structured YouTube data. It leverages AWS services for ingestion, transformation, and visualization to deliver business intelligence that can help:
+
+- Understand viewer behavior across regions and categories.
+- Optimize content based on engagement metrics.
+- Identify high-performing trends and viral videos.
+
+With scalable infrastructure and automated workflows, this pipeline sets a foundation for real-time video analytics and more advanced ML-driven insights in the future.
+
