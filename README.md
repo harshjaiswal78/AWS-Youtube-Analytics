@@ -48,6 +48,59 @@ The high-level architecture outlines how data flows through the system:
 6. **Data Catalogue & Classification**: AWS Glue Data Catalog to store metadata about tables and data schema.  
 7. **Reporting**: Amazon QuickSight for building interactive dashboards and visualizations.  
 
++------------------+
+|  Source Systems  |
+|------------------|
+|  - CSV Files     |
+|  - JSON Files    |
++--------+---------+
+         |
+         v
++--------------------------+
+|      AWS S3 Bucket       |
+|   (Bulk Ingestion Zone)  |
++--------------------------+
+         |
+         v
++--------------------------+
+|     Data Lake - S3       |
+|--------------------------|
+| 1. Landing Zone          |
+| 2. Cleansed Zone         |
+| 3. Enriched Zone         |
++--------------------------+
+         |
+         v
++--------------------------+
+|      AWS Glue Jobs       |
+|--------------------------|
+| - Crawling               |
+| - Cataloging             |
+| - Data Transformation    |
++-----------+--------------+
+            |
+            v
++-------------------------------+
+|    AWS Glue Data Catalog      |
+|-------------------------------|
+| - Stores table metadata       |
+| - Schema definitions          |
++-------------------------------+
+            |
+            v
++----------------------+      +-----------------------------+
+|    AWS Lambda        | ---> | AWS Athena (SQL Queries)    |
+|  (On-demand compute) |      +-----------------------------+
++----------------------+                  |
+                                          v
+                         +------------------------------+
+                         |   Amazon QuickSight           |
+                         |------------------------------|
+                         | - Dashboards & Visuals        |
+                         | - Reports for insights        |
+                         +------------------------------+
+
+
 ---
 
 ## Services Used
