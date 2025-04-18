@@ -35,8 +35,9 @@ This repository houses a **Data Engineering YouTube Analysis Project** that aims
 ## Architecture
 
 The high-level architecture outlines how data flows through the system:
+![image- architecture](https://github.com/user-attachments/assets/4444ed50-03a2-46d0-8d7a-176ba4da08ab)
 
-![architecture](https://github.com/user-attachments/assets/f81662d6-ae64-4673-9931-d56905026bf3)
+
 
 ### Components Overview
 
